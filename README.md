@@ -207,7 +207,7 @@ Mulai server dashboard dengan perintah:
 ## 🌐 Live Demo Aplikasi
 Anda dapat mencoba sistem klasifikasi pakaian ini secara langsung melalui tautan publik berikut:
 
-👉 [**Akses Live Demo Proyek Di Sini**](https://smart-clothing-classification.streamlit.app/)
+👉 [**Akses Live Demo Proyek Di Sini**](https://dashboarduap244.streamlit.app/)
 
 ---
 
