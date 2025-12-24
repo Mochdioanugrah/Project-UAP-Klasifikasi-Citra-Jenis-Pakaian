@@ -1,0 +1,13 @@
+{
+    "img_height": 224,
+    "img_width": 224,
+    "preprocessing_function": "efficientnet.preprocess_input",
+    "num_classes": 4,
+    "model_type": "efficientnetb0_pretrained",
+    "base_model": "EfficientNetB0",
+    "weights": "imagenet",
+    "fine_tuning": true,
+    "fine_tune_at": 178,
+    "optimizer_stage_1": "Adam(lr=1e-4)",
+    "optimizer_stage_2": "Adam(lr=1e-5)"
+}

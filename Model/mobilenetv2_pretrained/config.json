@@ -1,0 +1,13 @@
+{
+    "img_height": 224,
+    "img_width": 224,
+    "preprocessing_function": "mobilenet_v2.preprocess_input",
+    "num_classes": 4,
+    "model_type": "mobilenetv2_pretrained",
+    "base_model": "MobileNetV2",
+    "weights": "imagenet",
+    "fine_tuning": true,
+    "fine_tune_at": 100,
+    "optimizer_stage_1": "Adam(lr=1e-4)",
+    "optimizer_stage_2": "Adam(lr=1e-5)"
+}
