@@ -185,13 +185,6 @@ Sistem klasifikasi ini diimplementasikan ke dalam dashboard interaktif menggunak
 |--------------------------|-------------------------|
 | ![](assets/7.png) | ![](assets/8.png) |
 
-### 🛠️ Cara Kerja Sistem
-
-1. Menerima input **gambar pakaian** dari pengguna  
-2. Gambar diproses oleh **model AI** yang dipilih di sidebar  
-3. Sistem mengklasifikasikan gambar ke dalam **4 kategori pakaian**  
-4. Menampilkan **hasil prediksi dan tingkat keyakinan (confidence)**  
-
 ---
 
 ### 🛠️ Cara Kerja Sistem
