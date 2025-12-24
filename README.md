@@ -133,6 +133,13 @@ Proyek ini menggunakan tiga model *deep learning* untuk klasifikasi citra jenis 
 ---
 
 ## 📈 Hasil dan Analisis
+### 🔍 Ringkasan Hasil Evaluasi
+
+Evaluasi performa model dilakukan menggunakan data uji (**test set**) dengan metrik **precision**, **recall**, **f1-score**, dan **accuracy**.
+
+- CNN non-pretrained mampu mempelajari pola dasar pada citra pakaian, namun menunjukkan keterbatasan dalam membedakan kelas dengan karakteristik visual yang mirip.
+- MobileNetV2 memberikan peningkatan performa yang signifikan berkat pemanfaatan fitur visual hasil *pretraining* ImageNet.
+- EfficientNetB0 menghasilkan performa terbaik secara keseluruhan dengan distribusi metrik yang lebih seimbang antar kelas.
 
 ### 📊 Tabel Perbandingan Performa Model
 
@@ -141,6 +148,10 @@ Proyek ini menggunakan tiga model *deep learning* untuk klasifikasi citra jenis 
 | CNN Non-Pretrained | 0.63 | 0.62 | 0.63 | 0.60 |
 | MobileNetV2 (Pretrained) | 0.75 | 0.75 | 0.75 | 0.75 |
 | **EfficientNetB0 (Pretrained)** | **0.76** | **0.76** | **0.76** | **0.76** |
+
+### 📝 Analisis Singkat
+
+Hasil eksperimen menunjukkan bahwa model pretrained berbasis **transfer learning** secara konsisten mengungguli CNN yang dilatih dari awal. **EfficientNetB0** memberikan performa terbaik dengan arsitektur yang lebih efisien dan representasi fitur yang kuat, sehingga lebih efektif untuk tugas klasifikasi citra pakaian berbasis data dunia nyata.
 
 ---
 
@@ -173,6 +184,13 @@ Sistem klasifikasi ini diimplementasikan ke dalam dashboard interaktif menggunak
 | Tampilan Utama Dashboard | Hasil Analisis Prediksi |
 |--------------------------|-------------------------|
 | ![](assets/7.png) | ![](assets/8.png) |
+
+### 🛠️ Cara Kerja Sistem
+
+1. Menerima input **gambar pakaian** dari pengguna  
+2. Gambar diproses oleh **model AI** yang dipilih di sidebar  
+3. Sistem mengklasifikasikan gambar ke dalam **4 kategori pakaian**  
+4. Menampilkan **hasil prediksi dan tingkat keyakinan (confidence)**  
 
 ---
 
