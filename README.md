@@ -78,26 +78,57 @@ Dataset dibagi ke dalam tiga subset dengan rasio sebagai berikut:
 
 ### 🖼️ Preprocessing Citra
 
-Proses preprocessing dilakukan menyesuaikan jenis model yang digunakan.
+Proses preprocessing citra dilakukan dengan menyesuaikan jenis model yang digunakan, yaitu antara **model CNN non-pretrained** dan **model pretrained berbasis transfer learning**.
 
 #### 🔹 Preprocessing untuk CNN Non-Pretrained
+
+Pada model CNN yang dilatih dari awal, preprocessing citra dilakukan menggunakan `ImageDataGenerator` dari TensorFlow/Keras dengan tahapan berikut:
+
 - Resize gambar ke ukuran **224 × 224 piksel**
 - Normalisasi nilai piksel ke rentang **[0, 1]**
-- Penerapan **augmentasi data** pada data training
+- Label dikodekan dalam format **categorical**
+
+Selain itu, diterapkan **augmentasi data** pada data training untuk meningkatkan kemampuan generalisasi model, meliputi:
+- Rotasi gambar  
+- Perubahan posisi horizontal dan vertikal  
+- Zoom in/out  
+- Horizontal flip  
+
+Augmentasi **hanya diterapkan pada data training**, sedangkan data validation dan test hanya melalui proses normalisasi tanpa augmentasi.
+
+---
 
 #### 🔹 Preprocessing untuk Model Transfer Learning
-- **MobileNetV2** : Normalisasi nilai piksel ke rentang **[-1, 1]**
-- **EfficientNetB0** : Skema normalisasi khusus standar ImageNet
+
+Pada model pretrained, preprocessing citra disesuaikan dengan fungsi preprocessing bawaan dari masing-masing arsitektur. Sebagai contoh:
+
+- **MobileNetV2** memetakan nilai piksel ke rentang **[-1, 1]**
+- **EfficientNetB0** menggunakan skema normalisasi dan scaling khusus sesuai standar ImageNet
+
+Pendekatan ini diimplementasikan menggunakan fungsi `preprocess_input` dari TensorFlow/Keras untuk memastikan kesesuaian distribusi data dengan proses pretraining.
+
+
+---
+
+### 🏷️ Mapping Kelas
+
+Label kelas dihasilkan secara otomatis berdasarkan struktur folder dataset.  
+Mapping kelas disimpan dalam format **JSON** untuk menjaga konsistensi label antara proses pelatihan dan implementasi sistem.
 
 ---
 
 ## 🧠 Model yang Digunakan
 
-Proyek ini menggunakan tiga model *deep learning*:
+Proyek ini menggunakan tiga model *deep learning* untuk klasifikasi citra jenis pakaian:
 
-- **CNN Non-Pretrained** (Baseline)  
-- **MobileNetV2** (Transfer Learning)  
-- **EfficientNetB0** (Transfer Learning)  
+- **CNN Non-Pretrained**  
+  Model CNN yang dilatih dari awal tanpa bobot pretrained dan digunakan sebagai **baseline**.
+
+- **MobileNetV2**  
+  Model pretrained yang ringan dan efisien dengan pendekatan **transfer learning**.
+
+- **EfficientNetB0**  
+  Model pretrained dengan arsitektur modern yang dioptimalkan untuk keseimbangan akurasi dan kompleksitas model.
 
 ---
 
